@@ -1,0 +1,24 @@
+@import 'config';
+header {
+  background: #ffffff;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  .nav-container {
+    @include flex-center;
+    justify-content: space-between;
+    height: 80px;
+    margin: auto;
+    .logo {
+      margin-left: 80px;
+    }
+
+    .nav-links {
+      margin: auto;
+      @include flex-center;
+      li {
+        margin: 0 26px;
+      }
+    }
+  }
+}
