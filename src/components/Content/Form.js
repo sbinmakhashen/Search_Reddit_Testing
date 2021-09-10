@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import { TextField, Button } from '@material-ui/core';
-import ContentTitle from './ContentTitle';
 import ContnetTitle from './ContentTitle';
 const Form = () => {
-  const [subRed, setSubRed] = useState('javascript');
+  const [subRed, setSubRed] = useState('');
+
+  const handleOnChange = () => {
+    const input = document.querySelector('input[name="subRed"]');
+    setSubRed(input.value);
+  };
 
   return (
     <>
@@ -15,8 +19,11 @@ const Form = () => {
           </label>
           <TextField
             id="filled-basic"
+            name="subRed"
             className="sub-input"
             label="Enter a subreddit"
+            value={subRed}
+            onChange={handleOnChange}
           />
           <Button variant="contained" color="primary" className="btn">
             Search

@@ -4,7 +4,7 @@ const SubredditContext = React.createContext();
 
 const SubredditContextProvider = (props) => {
   return (
-    <SubredditContext.Provider value={null}>
+    <SubredditContext.Provider value="salem">
       {props.children}
     </SubredditContext.Provider>
   );
