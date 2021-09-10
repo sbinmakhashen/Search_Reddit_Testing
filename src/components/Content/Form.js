@@ -8,14 +8,16 @@ const Form = () => {
   return (
     <>
       <ContnetTitle />
-      <form id="form-group">
-        <label htmlFor="sub-reddit">
-          r/
-          <TextField id="filled-basic" label="<subreddit>" />
-        </label>
-        <Button variant="contained" color="primary">
-          Search
-        </Button>
+      <form>
+        <div className="form-group">
+          <label className="sub-label" htmlFor="sub-reddit">
+            r/
+          </label>
+          <TextField id="filled-basic sub-input" label="<subreddit>" />
+          <Button variant="contained" color="primary">
+            Search
+          </Button>
+        </div>
       </form>
     </>
   );

@@ -1,0 +1,12 @@
+@import './config.scss';
+
+.form-group {
+  @include flex-center;
+  width: 90%;
+
+  .sub-label {
+    font-size: 1.8rem;
+    transform: translateY(20%);
+    margin-right: 0.5rem;
+  }
+}
