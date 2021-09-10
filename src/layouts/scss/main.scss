@@ -5,9 +5,6 @@
   margin: 0;
   padding: 0;
 }
-html {
-  width: 1440px;
-}
 body {
   background-color: color-get(backgroundC);
   color: color-get(text-color);
@@ -21,10 +18,10 @@ a {
   text-decoration: none;
   color: color-get(text-color);
 }
-.title-container {
-  text-align: center;
-  margin: 0 auto;
-}
 .title {
-  // text-align: center;
+  text-align: center;
+  color: #000;
+  font-size: 3rem;
+  @include flex-center;
+  height: 50vh;
 }
