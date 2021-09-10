@@ -24,4 +24,8 @@ a {
   font-size: 3rem;
   @include flex-center;
   height: 50vh;
+
+  &-content {
+    height: 20vh;
+  }
 }
