@@ -70,4 +70,9 @@ a {
   text-decoration: none;
   color: #636363;
 }
+
+.title-container {
+  text-align: center;
+  margin: 0 auto;
+}
 /*# sourceMappingURL=main.css.map */
