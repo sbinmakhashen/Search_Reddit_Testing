@@ -16,7 +16,7 @@ const Form = () => {
           <TextField
             id="filled-basic"
             className="sub-input"
-            label="<subreddit>"
+            label="Enter a subreddit"
           />
           <Button variant="contained" color="primary" className="btn">
             Search

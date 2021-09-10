@@ -11,6 +11,7 @@ function App() {
   return (
     <div className="App">
       <Header />
+      {/* main page content section */}
       <Form />
       <FooterContent />
       <Switch>
