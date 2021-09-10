@@ -1,5 +1,5 @@
 header {
-  background: #ffffff;
+  background: #f7f7f7;
   position: fixed;
   top: 0;
   width: 100%;
@@ -44,6 +44,37 @@ header .nav-container .nav-links li {
   margin: 0 26px;
 }
 
+.form-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 90%;
+  margin: auto;
+}
+
+.form-group .sub-label {
+  font-size: 1.8rem;
+  -webkit-transform: translateY(20%);
+          transform: translateY(20%);
+  margin-right: 0.5rem;
+}
+
+.form-group .sub-input {
+  width: 40%;
+}
+
+.form-group .btn {
+  -webkit-transform: translateY(20%);
+          transform: translateY(20%);
+  margin-left: 0.5rem;
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -81,5 +112,9 @@ a {
       -ms-flex-align: center;
           align-items: center;
   height: 50vh;
+}
+
+.title-content {
+  height: 20vh;
 }
 /*# sourceMappingURL=main.css.map */

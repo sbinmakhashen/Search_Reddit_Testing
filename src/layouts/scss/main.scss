@@ -1,5 +1,7 @@
-@import './header';
 @import 'config';
+@import './header';
+@import './form';
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -24,4 +26,8 @@ a {
   font-size: 3rem;
   @include flex-center;
   height: 50vh;
+
+  &-content {
+    height: 20vh;
+  }
 }
