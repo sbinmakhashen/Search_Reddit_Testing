@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { TextField, Button } from '@material-ui/core';
 import ContnetTitle from './ContentTitle';
+import { SubredditContext } from '../../Context/SubredditContext';
 const Form = () => {
   const [subRed, setSubRed] = useState('');
 
+  const { handleSubmit } = useContext(SubredditContext);
   const handleOnChange = () => {
     const input = document.querySelector('input[name="subRed"]');
     setSubRed(input.value);
@@ -12,7 +14,7 @@ const Form = () => {
   return (
     <>
       <ContnetTitle />
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label className="sub-label" htmlFor="sub-reddit">
             r/
@@ -25,7 +27,12 @@ const Form = () => {
             value={subRed}
             onChange={handleOnChange}
           />
-          <Button variant="contained" color="primary" className="btn">
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+            className="btn"
+          >
             Search
           </Button>
         </div>

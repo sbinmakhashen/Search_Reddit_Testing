@@ -2,10 +2,15 @@ import React from 'react';
 
 const SubredditContext = React.createContext();
 
-const SubredditContextProvider = (props) => {
+const SubredditContextProvider = ({ children }) => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
+  const value = { handleSubmit };
   return (
-    <SubredditContext.Provider value="salem">
-      {props.children}
+    <SubredditContext.Provider value={value}>
+      {children}
     </SubredditContext.Provider>
   );
 };
