@@ -13,8 +13,12 @@ const Form = () => {
           <label className="sub-label" htmlFor="sub-reddit">
             r/
           </label>
-          <TextField id="filled-basic sub-input" label="<subreddit>" />
-          <Button variant="contained" color="primary">
+          <TextField
+            id="filled-basic"
+            className="sub-input"
+            label="<subreddit>"
+          />
+          <Button variant="contained" color="primary" className="btn">
             Search
           </Button>
         </div>

@@ -1,5 +1,5 @@
 header {
-  background: #ffffff;
+  background: #f7f7f7;
   position: fixed;
   top: 0;
   width: 100%;
@@ -55,6 +55,7 @@ header .nav-container .nav-links li {
       -ms-flex-align: center;
           align-items: center;
   width: 90%;
+  margin: auto;
 }
 
 .form-group .sub-label {
@@ -62,6 +63,16 @@ header .nav-container .nav-links li {
   -webkit-transform: translateY(20%);
           transform: translateY(20%);
   margin-right: 0.5rem;
+}
+
+.form-group .sub-input {
+  width: 40%;
+}
+
+.form-group .btn {
+  -webkit-transform: translateY(20%);
+          transform: translateY(20%);
+  margin-left: 0.5rem;
 }
 
 * {
