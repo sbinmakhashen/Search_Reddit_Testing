@@ -5,7 +5,7 @@ const FooterContent = () => {
   return (
     <footer>
       <p>subreddit-posts-finder.io</p>
-      <FooterContent />
+      <FooterLogo />
       <p>Terms & Privacy</p>
     </footer>
   );

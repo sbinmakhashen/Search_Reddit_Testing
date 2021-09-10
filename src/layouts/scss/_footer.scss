@@ -1,0 +1,13 @@
+@import './config.scss';
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  padding-bottom: 1rem;
+  @include flex-center;
+  justify-content: space-between;
+  width: 90%;
+}

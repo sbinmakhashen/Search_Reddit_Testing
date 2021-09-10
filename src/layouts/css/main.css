@@ -75,6 +75,28 @@ header .nav-container .nav-links li {
   margin-left: 0.5rem;
 }
 
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  padding-bottom: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 90%;
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -82,11 +104,16 @@ header .nav-container .nav-links li {
   padding: 0;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   background-color: #ffffff;
   color: #636363;
   line-height: 1.4;
   margin: 90px auto;
+  height: 100%;
 }
 
 li {

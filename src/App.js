@@ -5,11 +5,14 @@ import Header from './components/Header';
 import HowItWorks from './pages/HowItWorks';
 import About from './pages/About';
 import Form from './components/Content';
+import FooterContent from './components/Footer';
+
 function App() {
   return (
     <div className="App">
       <Header />
       <Form />
+      <FooterContent />
       <Switch>
         <Route exact path="/how-it-works" component={HowItWorks} />
         <Route path="/about" component={About} />
