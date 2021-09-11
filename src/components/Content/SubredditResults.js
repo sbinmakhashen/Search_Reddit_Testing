@@ -6,11 +6,11 @@ const SubredditResults = () => {
   return (
     <div className="post-results">
       <div className="loading-true">
-        {isLoading && <h2 className="loading">Loading..</h2>}
+        {isLoading && <h1 className="loading">Loading..</h1>}
       </div>
       <div className="show-results">
         {isLoading === false && (
-          <h2 className="results">Number of top posts: {postNum}</h2>
+          <h1 className="results">Number of top posts: {postNum}</h1>
         )}
       </div>
     </div>
