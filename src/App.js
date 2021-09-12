@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import './layouts/css/main.css';
 import Header from './components/Header';
@@ -6,8 +6,11 @@ import HowItWorks from './pages/HowItWorks';
 import About from './pages/About';
 import Form from './components/Content';
 import FooterContent from './components/Footer';
+import { SubredditContext } from './Context/SubredditContext';
 
 function App() {
+  const { str } = useContext(SubredditContext);
+  console.log(str);
   return (
     <div className="App">
       <Header />

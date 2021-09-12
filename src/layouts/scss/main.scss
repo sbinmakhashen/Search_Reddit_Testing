@@ -2,6 +2,7 @@
 @import './header';
 @import './form';
 @import './footer';
+@import './content';
 
 * {
   box-sizing: border-box;
@@ -17,6 +18,7 @@ body {
   line-height: 1.4;
   margin: 90px auto;
   height: 100%;
+  overflow: hidden;
 }
 li {
   list-style: none;

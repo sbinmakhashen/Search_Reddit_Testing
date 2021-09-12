@@ -1,28 +1,45 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { TextField, Button } from '@material-ui/core';
-import ContentTitle from './ContentTitle';
 import ContnetTitle from './ContentTitle';
+import { SubredditContext } from '../../Context/SubredditContext';
+import SubredditResults from './SubredditResults';
+
 const Form = () => {
-  const [subRed, setSubRed] = useState('javascript');
+  const { handleSubmit, subReddit, setSubReddit } =
+    useContext(SubredditContext);
+
+  const handleOnChange = () => {
+    const input = document.querySelector('input[name="subRed"]');
+    setSubReddit(input.value);
+  };
 
   return (
     <>
       <ContnetTitle />
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label className="sub-label" htmlFor="sub-reddit">
             r/
           </label>
           <TextField
             id="filled-basic"
+            name="subRed"
             className="sub-input"
             label="Enter a subreddit"
+            value={subReddit}
+            onChange={handleOnChange}
           />
-          <Button variant="contained" color="primary" className="btn">
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+            className="btn"
+          >
             Search
           </Button>
         </div>
       </form>
+      <SubredditResults />
     </>
   );
 };

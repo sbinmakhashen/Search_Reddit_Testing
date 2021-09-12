@@ -1,0 +1,14 @@
+@import './config.scss';
+
+.post-results {
+  @include flex-center;
+  height: 15vh;
+  margin: auto;
+}
+
+.empty-str {
+  position: absolute;
+  top: 25%;
+  font-size: 2rem;
+  color: #c20c0c;
+}
