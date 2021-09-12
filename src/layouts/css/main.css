@@ -111,6 +111,13 @@ footer {
   margin: auto;
 }
 
+.empty-str {
+  position: absolute;
+  top: 25%;
+  font-size: 2rem;
+  color: #c20c0c;
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
