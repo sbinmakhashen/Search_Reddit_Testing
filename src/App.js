@@ -6,19 +6,16 @@ import HowItWorks from './pages/HowItWorks';
 import About from './pages/About';
 import Form from './components/Content';
 import FooterContent from './components/Footer';
-import { SubredditContext } from './Context/SubredditContext';
 
 function App() {
-  const { str } = useContext(SubredditContext);
-  console.log(str);
   return (
     <div className="App">
       <Header />
       {/* main page content section */}
-      <Form />
       <FooterContent />
       <Switch>
-        <Route exact path="/how-it-works" component={HowItWorks} />
+        <Route exact path="/" component={Form} />
+        <Route path="/how-it-works" component={HowItWorks} />
         <Route path="/about" component={About} />
       </Switch>
     </div>
