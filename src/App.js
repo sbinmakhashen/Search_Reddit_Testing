@@ -6,11 +6,8 @@ import HowItWorks from './pages/HowItWorks';
 import About from './pages/About';
 import Form from './components/Content';
 import FooterContent from './components/Footer';
-import { SubredditContext } from './Context/SubredditContext';
 
 function App() {
-  const { str } = useContext(SubredditContext);
-  console.log(str);
   return (
     <div className="App">
       <Header />

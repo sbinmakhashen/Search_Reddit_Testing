@@ -1,13 +1,11 @@
 import React, { useContext } from 'react';
 import { TextField, Button } from '@material-ui/core';
 import ContnetTitle from './ContentTitle';
-import { SubredditContext } from '../../Context/SubredditContext';
+import SubContext from '../../Context/SubContext';
 import SubredditResults from './SubredditResults';
 
 const Form = () => {
-  const { handleSubmit, subReddit, setSubReddit } =
-    useContext(SubredditContext);
-
+  const { handleSubmit, subReddit, setSubReddit } = useContext(SubContext);
   const handleOnChange = () => {
     const input = document.querySelector('input[name="subRed"]');
     setSubReddit(input.value);
