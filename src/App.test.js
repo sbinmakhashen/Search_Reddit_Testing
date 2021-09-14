@@ -1,14 +1,37 @@
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router';
 import App from './App';
 
 describe('Header', () => {
-  test('"How it works" link it should point to the correct page', () => {
+  test('"how it works" link should point to the corrct page', () => {
     render(
       <MemoryRouter>
         <App />
       </MemoryRouter>,
     );
-    screen.debug();
+    const howLink = screen.getByRole('link', { name: /how it works/i });
+    screen.debug(howLink);
+    userEvent.click(howLink);
+
+    expect(
+      screen.getByRole('heading', { name: /how it works/i }),
+    ).toBeInTheDocument();
+  });
+
+  test('"about" link should point to the corrct page', () => {
+    render(
+      <MemoryRouter>
+        <App />
+      </MemoryRouter>,
+    );
+
+    const aboutLink = screen.getByRole('link', { name: /about/i });
+    userEvent.click(aboutLink);
+    screen.debug(aboutLink);
+
+    expect(
+      screen.getByRole('heading', { name: /welcome to/i }),
+    ).toBeInTheDocument();
   });
 });
