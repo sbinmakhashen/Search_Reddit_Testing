@@ -34,4 +34,17 @@ describe('Header', () => {
       screen.getByRole('heading', { name: /welcome to/i }),
     ).toBeInTheDocument();
   });
+
+  test('"Logo" link should point to the / home page', () => {
+    render(
+      <MemoryRouter>
+        <App />
+      </MemoryRouter>,
+    );
+    const logoLink = screen.getByRole('link', { name: /reddit logo/i });
+    userEvent.click(logoLink);
+    screen.debug(logoLink);
+
+    expect(screen.getByRole('button', { name: /search/i })).toBeInTheDocument();
+  });
 });
