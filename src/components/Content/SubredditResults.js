@@ -1,10 +1,8 @@
 import React, { useContext } from 'react';
-import { SubredditContext } from '../../Context/SubredditContext';
+import SubContext from '../../Context/SubContext';
 
 const SubredditResults = () => {
-  const { isLoading, postNum, isEmpty, resultPosts } =
-    useContext(SubredditContext);
-  console.log(isEmpty);
+  const { isLoading, postNum, isEmpty, resultPosts } = useContext(SubContext);
   return (
     <div className="post-results">
       <div className="loading-true">

@@ -6,11 +6,11 @@ import { SubredditContextProvider } from './Context/SubredditContext';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <SubredditContextProvider>
+    <SubredditContextProvider>
+      <Router>
         <App />
-      </SubredditContextProvider>
-    </Router>
+      </Router>
+    </SubredditContextProvider>
   </React.StrictMode>,
   document.getElementById('root'),
 );

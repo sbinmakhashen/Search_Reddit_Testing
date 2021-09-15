@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
+import SubContext from './SubContext';
 
-const SubredditContext = React.createContext();
-const SubredditContextProvider = ({ children }) => {
+export const SubredditContextProvider = ({ children }) => {
   const [subReddit, setSubReddit] = useState(null);
   const [postNum, setPostNum] = useState(0);
   const [isLoading, setIsLoading] = useState(null);
@@ -36,11 +36,5 @@ const SubredditContextProvider = ({ children }) => {
     resultPosts,
   };
 
-  return (
-    <SubredditContext.Provider value={value}>
-      {children}
-    </SubredditContext.Provider>
-  );
+  return <SubContext.Provider value={value}>{children}</SubContext.Provider>;
 };
-
-export { SubredditContext, SubredditContextProvider };
