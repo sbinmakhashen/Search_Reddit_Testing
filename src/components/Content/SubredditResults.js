@@ -9,7 +9,7 @@ const SubredditResults = () => {
         {isLoading && <h1 className="loading">Loading..</h1>}
       </div>
       <div className="show-results" ref={resultPosts}>
-        {isLoading === false && (
+        {!isLoading && (
           <h1 className="results">Number of top posts: {postNum}</h1>
         )}
       </div>

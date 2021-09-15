@@ -3,7 +3,6 @@ import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router';
 import App from './App';
 import { SubredditContextProvider } from './Context/SubredditContext';
-import fetchMock from 'jest-fetch-mock';
 import responseTesting from './mocks/responseTesting.json';
 
 describe('Header', () => {
@@ -60,21 +59,36 @@ function setup() {
 }
 describe('subreddit form', () => {
   test('posts should resolve and render on the page', async () => {
-    fetch.once(JSON.stringify(responseTesting));
+    fetch.mockResponseOnce(JSON.stringify(responseTesting));
     setup();
     const subInput = screen.getByLabelText(/r/i);
     userEvent.type(subInput, 'reactjs');
     expect(subInput).toHaveValue('reactjs');
-    screen.debug(subInput);
 
     const submitBtn = screen.getByRole('button', { name: /search/i });
     userEvent.click(submitBtn);
     expect(screen.getByText(/loading/i)).toBeInTheDocument();
-    // const apiResults = await screen.findByText(/number/i);
+    // const apiResults = await waitFor(() => screen.findByText(/number/i), {
+    //   timeout: 8000,
+    // });
     // expect(await screen.findByText(/number/i)).toBeInTheDocument();
     expect(fetch).toHaveBeenCalledWith(
       'https://www.reddit.com/r/reactjs/top.json',
     );
     screen.debug();
+  });
+});
+
+describe('error message', () => {
+  test('error message displays when a user submits without entering in input', async () => {
+    fetch.once(JSON.stringify(responseTesting));
+    setup();
+    const subInput = screen.getByLabelText(/r/i);
+    userEvent.type(subInput, null);
+
+    const submitBtn = screen.getByRole('button', { name: /search/i });
+    userEvent.click(submitBtn);
+    const errMessage = screen.getByText(/please/i);
+    expect(errMessage).toBeInTheDocument();
   });
 });
