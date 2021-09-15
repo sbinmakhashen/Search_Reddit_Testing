@@ -2,6 +2,9 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router';
 import App from './App';
+import { SubredditContextProvider } from './Context/SubredditContext';
+import fetchMock from 'jest-fetch-mock';
+import responseTesting from './mocks/responseTesting.json';
 
 describe('Header', () => {
   test('"how it works" link should point to the corrct page', () => {
@@ -11,7 +14,6 @@ describe('Header', () => {
       </MemoryRouter>,
     );
     const howLink = screen.getByRole('link', { name: /how it works/i });
-    // screen.debug(howLink);
     userEvent.click(howLink);
 
     expect(
@@ -28,7 +30,6 @@ describe('Header', () => {
 
     const aboutLink = screen.getByRole('link', { name: /about/i });
     userEvent.click(aboutLink);
-    // screen.debug(aboutLink);
 
     expect(
       screen.getByRole('heading', { name: /welcome to/i }),
@@ -43,7 +44,6 @@ describe('Header', () => {
     );
     const logoLink = screen.getByRole('link', { name: /reddit logo/i });
     userEvent.click(logoLink);
-    // screen.debug(logoLink);
 
     expect(screen.getByRole('button', { name: /search/i })).toBeInTheDocument();
   });
@@ -51,23 +51,30 @@ describe('Header', () => {
 
 function setup() {
   return render(
-    <MemoryRouter>
-      <App />
-    </MemoryRouter>,
+    <SubredditContextProvider>
+      <MemoryRouter>
+        <App />
+      </MemoryRouter>
+    </SubredditContextProvider>,
   );
 }
-
-describe('posts should resolve and render on the page', () => {
-  test('load results and render them', () => {
+describe('subreddit form', () => {
+  test('posts should resolve and render on the page', async () => {
+    fetch.once(JSON.stringify(responseTesting));
     setup();
     const subInput = screen.getByLabelText(/r/i);
     userEvent.type(subInput, 'reactjs');
     expect(subInput).toHaveValue('reactjs');
     screen.debug(subInput);
 
-    // const submitBtn = screen.getByRole('button', { name: /search/i });
-    // userEvent.click(submitBtn);
-    // expect(screen.getByText(/pl/i)).toBeInTheDocument();
-    // screen.debug();
+    const submitBtn = screen.getByRole('button', { name: /search/i });
+    userEvent.click(submitBtn);
+    expect(screen.getByText(/loading/i)).toBeInTheDocument();
+    // const apiResults = await screen.findByText(/number/i);
+    // expect(await screen.findByText(/number/i)).toBeInTheDocument();
+    expect(fetch).toHaveBeenCalledWith(
+      'https://www.reddit.com/r/reactjs/top.json',
+    );
+    screen.debug();
   });
 });
