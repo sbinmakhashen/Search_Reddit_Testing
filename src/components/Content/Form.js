@@ -6,10 +6,10 @@ import SubredditResults from './SubredditResults';
 
 const Form = () => {
   const { handleSubmit, subReddit, setSubReddit } = useContext(SubContext);
-  const handleOnChange = () => {
-    const input = document.querySelector('input[name="subRed"]');
-    setSubReddit(input.value);
-  };
+  // const handleOnChange = () => {
+  //   const input = document.querySelector('input[name="subRed"]');
+  //   setSubReddit(input.value);
+  // };
 
   return (
     <>
@@ -25,7 +25,7 @@ const Form = () => {
             className="sub-input"
             label="Enter a subreddit"
             value={subReddit}
-            onChange={handleOnChange}
+            onChange={(event) => setSubReddit(event.target.value)}
           />
           <Button
             type="submit"
