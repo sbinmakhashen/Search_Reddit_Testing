@@ -11,7 +11,7 @@ describe('Header', () => {
       </MemoryRouter>,
     );
     const howLink = screen.getByRole('link', { name: /how it works/i });
-    screen.debug(howLink);
+    // screen.debug(howLink);
     userEvent.click(howLink);
 
     expect(
@@ -28,7 +28,7 @@ describe('Header', () => {
 
     const aboutLink = screen.getByRole('link', { name: /about/i });
     userEvent.click(aboutLink);
-    screen.debug(aboutLink);
+    // screen.debug(aboutLink);
 
     expect(
       screen.getByRole('heading', { name: /welcome to/i }),
@@ -43,8 +43,31 @@ describe('Header', () => {
     );
     const logoLink = screen.getByRole('link', { name: /reddit logo/i });
     userEvent.click(logoLink);
-    screen.debug(logoLink);
+    // screen.debug(logoLink);
 
     expect(screen.getByRole('button', { name: /search/i })).toBeInTheDocument();
+  });
+});
+
+function setup() {
+  return render(
+    <MemoryRouter>
+      <App />
+    </MemoryRouter>,
+  );
+}
+
+describe('posts should resolve and render on the page', () => {
+  test('load results and render them', () => {
+    setup();
+    const subInput = screen.getByLabelText(/r/i);
+    userEvent.type(subInput, 'reactjs');
+    expect(subInput).toHaveValue('reactjs');
+    screen.debug(subInput);
+
+    // const submitBtn = screen.getByRole('button', { name: /search/i });
+    // userEvent.click(submitBtn);
+    // expect(screen.getByText(/pl/i)).toBeInTheDocument();
+    // screen.debug();
   });
 });
